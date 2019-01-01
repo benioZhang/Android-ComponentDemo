@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply from: rootProject.file('component-setting.gradle')
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -22,7 +22,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.deps.appcompat
+    implementation rootProject.ext.deps.constraint
     testImplementation rootProject.ext.deps.junit
     androidTestImplementation rootProject.ext.deps.runner
     androidTestImplementation rootProject.ext.deps.espresso
+    implementation project(':base')
 }

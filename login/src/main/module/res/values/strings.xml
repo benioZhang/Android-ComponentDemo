@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--单独测试专用的定义在此处-->
+    <string name="login_app_name">login</string>
+</resources>

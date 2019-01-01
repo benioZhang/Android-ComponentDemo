@@ -1,0 +1,54 @@
+static def getProperties(def propertiesFile) {
+    def properties = new Properties()
+    properties.load(new FileInputStream(propertiesFile))
+    return properties
+}
+
+def projectName = project.getName()
+// 每个module都有自己的ext
+// 优先级：ext.runAlone  > module的local.properties > 根目录的local.properties
+// runAlone 未配置时，以优先级从高到低依次读取配置
+def runAlone = ext.has('runAlone')
+if (runAlone) {
+    runAlone = ext.runAlone
+} else {
+    def hasRunAlone = false
+    def localPropertiesFile = project.file('local.properties')
+    // module的local.properties存在，则尝试从中获取runAlone
+    if (localPropertiesFile != null && localPropertiesFile.exists()) {
+        def properties = getProperties(localPropertiesFile)
+        hasRunAlone = properties.hasProperty('runAlone')
+        if (hasRunAlone) {
+            runAlone = properties.get('runAlone') == 'true'
+        }
+    }
+    // 最后尝试从根目录的local.properties获取runAlone
+    if (!hasRunAlone) {
+        runAlone = getProperties(rootProject.file('local.properties')).get('runAlone') == 'true'
+    }
+}
+//设置到ext中，供module的build.gradle使用（例如用于设置sourceSets配置）
+ext.runAlone = runAlone
+if (runAlone) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+android {
+    // 资源名前缀: projectName_
+    resourcePrefix projectName + "_"
+
+    sourceSets {
+        main {
+            // 单独调试与集成调试时使用不同的 AndroidManifest.xml 文件
+            // 单独调试时，会同时使用module目录和main目录下的资源
+            if (runAlone) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java', 'src/main/module/java']
+                res.srcDirs = ['src/main/res', 'src/main/module/res']
+                assets.srcDirs = ['src/main/assets', 'src/main/module/assets']
+            }
+        }
+    }
+}

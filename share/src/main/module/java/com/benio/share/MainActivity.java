@@ -1,4 +1,4 @@
-package com.benio.component.demo;
+package com.benio.share;
 
 import android.os.Bundle;
 
@@ -9,6 +9,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.share_activity_main);
     }
 }
