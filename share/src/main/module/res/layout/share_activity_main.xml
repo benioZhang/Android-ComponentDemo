@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_share_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello world in share module!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-</android.support.constraint.ConstraintLayout>
+        android:text="已登录时进行分享" />
+
+    <Button
+        android:id="@+id/btn_share_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未登录时进行分享" />
+
+    <Button
+        android:id="@+id/btn_share_not_registered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未注册ACCOUNT_SERVICE时进行分享" />
+</LinearLayout>

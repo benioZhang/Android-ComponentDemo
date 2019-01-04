@@ -1,2 +1,8 @@
 <resources>
+    <string name="share_title" >分享</string>
+    <string name="share_btn_share" >立即分享</string>
+    <string name="share_to" >分享到</string>
+    <string name="share_logout" >未登录</string>
+    <string name="share_failed_while_logout" >分享失败：用户未登录</string>
+    <string name="share_content" >来自%s的分享：%s</string>
 </resources>

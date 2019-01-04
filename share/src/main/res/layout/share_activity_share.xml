@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ShareActivity">
+
+    <TextView
+        android:id="@+id/tv_share_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/share_vertical_space"
+        android:textSize="20sp"
+        tools:text="Benio" />
+
+    <EditText
+        android:id="@+id/et_share_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/share_vertical_space"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:maxLines="3"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/btn_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/share_vertical_space"
+        android:text="@string/share_btn_share" />
+
+</LinearLayout>
