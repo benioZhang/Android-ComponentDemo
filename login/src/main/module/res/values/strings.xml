@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--单独测试专用的定义在此处-->
-    <string name="login_app_name">login</string>
+    <string name="login_app_name">Login</string>
+    <string name="login">登录</string>
+    <string name="logout">注销</string>
+    <string name="login_logout_success">注销成功</string>
 </resources>
