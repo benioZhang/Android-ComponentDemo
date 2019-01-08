@@ -12,4 +12,6 @@ public interface AccountService {
     String getUserId();
 
     String getUserName();
+
+    void logout();
 }

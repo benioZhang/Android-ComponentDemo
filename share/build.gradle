@@ -4,6 +4,12 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
+        // 单独调试的时候，applicationId是可以不填写的
+        // 此时applicationId为新建module时的包名，即"com.benio.share"
+        // 这里是为了演示指定applicationId
+        if (project.ext.runAlone) {
+            applicationId "com.benio.component.share"
+        }
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

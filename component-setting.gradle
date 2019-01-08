@@ -5,7 +5,8 @@ static def getProperties(def propertiesFile) {
 }
 
 def projectName = project.getName()
-// 每个module都有自己的ext
+// 每个module都有自己的ext，此处project.ext == ext
+// module要想引用runAlone的话，可使用project.ext.runAlone
 // 优先级：ext.runAlone  > module的local.properties > 根目录的local.properties
 // runAlone 未配置时，以优先级从高到低依次读取配置
 def runAlone = ext.has('runAlone')

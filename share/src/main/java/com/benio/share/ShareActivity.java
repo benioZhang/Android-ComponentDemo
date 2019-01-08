@@ -73,10 +73,12 @@ public class ShareActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_share:
-                share();
-                break;
+        // 注意：单独调试的时候,id是static final的，所以可以用switch
+        // 当时继承调试的时候，id是static的，是不能通过编译的
+        // 所以在module内只能用if，不要用switch!!!!!!!!!!!
+        int id = v.getId();
+        if (id == R.id.btn_share) {
+            share();
         }
     }
 

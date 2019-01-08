@@ -28,4 +28,6 @@ dependencies {
     androidTestImplementation rootProject.ext.deps.runner
     androidTestImplementation rootProject.ext.deps.espresso
     implementation project(':base')
+    runtimeOnly project(':login')
+    runtimeOnly project(':share')
 }
