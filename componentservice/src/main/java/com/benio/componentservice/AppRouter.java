@@ -1,23 +1,32 @@
 package com.benio.componentservice;
 
-import java.util.HashMap;
+import android.support.v4.util.ArrayMap;
+
+import java.lang.reflect.Proxy;
 import java.util.Map;
 
 public class AppRouter {
-    public static final String LOGIN = "login";
-    public static final String SHARE = "share";
+    public static final Class<LoginRoute> LOGIN = LoginRoute.class;
+    public static final Class<ShareRoute> SHARE = ShareRoute.class;
 
-    private static final Map<String, RoadMap> ROAD_MAPS = new HashMap<>();
+    private static final Map<Class, IRoute> ROUTES = new ArrayMap<>();
 
-    public static <T extends RoadMap> T get(String name) {
-        return (T) ROAD_MAPS.get(name);
+    public static <T extends IRoute> T get(Class<T> cls) {
+        IRoute route = ROUTES.get(cls);
+        if (route == null) {
+            // 为了避免 NullPointException，减少调用者频繁的判空操作, 返回一个动态代理
+            route = (IRoute) Proxy.newProxyInstance(cls.getClassLoader(), new Class<?>[]{cls}, new NoActionProxy());
+            // 保存到ROUTES
+            ROUTES.put(cls, route);
+        }
+        return (T) route;
     }
 
-    public static void register(String name, RoadMap service) {
-        ROAD_MAPS.put(name, service);
+    public static <T extends IRoute> void register(Class<T> cls, T service) {
+        ROUTES.put(cls, service);
     }
 
-    public static void remove(String name) {
-        ROAD_MAPS.remove(name);
+    public static <T extends IRoute> void unregister(Class<T> cls) {
+        ROUTES.remove(cls);
     }
 }

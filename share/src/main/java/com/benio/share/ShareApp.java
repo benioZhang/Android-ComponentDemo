@@ -7,6 +7,6 @@ public class ShareApp extends ApplicationDelegate {
     @Override
     public void onCreate() {
         super.onCreate();
-        AppRouter.register(AppRouter.SHARE, new ShareRoadMapImpl());
+        AppRouter.register(AppRouter.SHARE, new ShareRouteImpl());
     }
 }

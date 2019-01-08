@@ -1,6 +1,6 @@
 package com.benio.componentservice;
 
-public interface AccountService {
+public interface AccountService extends IService {
     /**
      * 是否已经登录
      */

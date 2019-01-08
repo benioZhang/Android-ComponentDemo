@@ -1,4 +1,4 @@
 package com.benio.componentservice;
 
-public interface RoadMap {
+public interface IRoute {
 }

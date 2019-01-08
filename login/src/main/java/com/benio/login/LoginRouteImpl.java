@@ -3,9 +3,9 @@ package com.benio.login;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.benio.componentservice.LoginRoadMap;
+import com.benio.componentservice.LoginRoute;
 
-public class LoginRoadMapImpl implements LoginRoadMap {
+public class LoginRouteImpl implements LoginRoute {
     @Override
     public void login(Activity activity, int requestCode) {
         Intent intent = new Intent(activity, LoginActivity.class);

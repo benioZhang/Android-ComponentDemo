@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
-import com.benio.componentservice.ShareRoadMap;
+import com.benio.componentservice.ShareRoute;
 
-public class ShareRoadMapImpl implements ShareRoadMap {
+public class ShareRouteImpl implements ShareRoute {
     @Override
     public void share(Context context) {
         Intent intent = new Intent(context, ShareActivity.class);

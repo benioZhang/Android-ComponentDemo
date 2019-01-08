@@ -10,9 +10,7 @@ import android.widget.Toast;
 import com.benio.base.BaseActivity;
 import com.benio.componentservice.AccountService;
 import com.benio.componentservice.AppRouter;
-import com.benio.componentservice.LoginRoadMap;
 import com.benio.componentservice.ServiceManager;
-import com.benio.componentservice.ShareRoadMap;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static final int REQUEST_LOGIN = 0x1001;
@@ -34,7 +32,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void updateLoginState() {
         AccountService accountService = ServiceManager.getService(ServiceManager.ACCOUNT_SERVICE);
-        if (accountService != null && accountService.isLogin()) {
+        if (accountService.isLogin()) {
             mUsernameView.setText(accountService.getUserName());
             mLoginButton.setText("注销");
         } else {
@@ -59,22 +57,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void gotoShare() {
-        ShareRoadMap shareRoadMap = AppRouter.get(AppRouter.SHARE);
-        if (shareRoadMap != null) {
-            shareRoadMap.share(this);
-        }
+        AppRouter.get(AppRouter.SHARE).share(this);
     }
 
     private void gotoLogin(int requestCode) {
-        LoginRoadMap loginRoadMap = AppRouter.get(AppRouter.LOGIN);
-        if (loginRoadMap != null) {
-            loginRoadMap.login(this, requestCode);
-        }
+        AppRouter.get(AppRouter.LOGIN).login(this, requestCode);
     }
 
     private void loginOrLogout() {
         AccountService accountService = ServiceManager.getService(ServiceManager.ACCOUNT_SERVICE);
-        if (accountService != null && accountService.isLogin()) {
+        if (accountService.isLogin()) {
             accountService.logout();
             Toast.makeText(this, "注销成功", Toast.LENGTH_SHORT).show();
             updateLoginState();
@@ -85,7 +77,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void share() {
         AccountService accountService = ServiceManager.getService(ServiceManager.ACCOUNT_SERVICE);
-        if (accountService != null && accountService.isLogin()) {
+        if (accountService.isLogin()) {
             gotoShare();
         } else {
             Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();
@@ -94,7 +86,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void loginAndShare() {
         AccountService accountService = ServiceManager.getService(ServiceManager.ACCOUNT_SERVICE);
-        if (accountService != null && accountService.isLogin()) {
+        if (accountService.isLogin()) {
             // 已经登录，则直接去分享
             gotoShare();
         } else {

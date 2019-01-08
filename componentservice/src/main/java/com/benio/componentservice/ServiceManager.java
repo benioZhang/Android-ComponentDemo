@@ -1,22 +1,29 @@
 package com.benio.componentservice;
 
-import java.util.HashMap;
+import android.support.v4.util.ArrayMap;
+
+import java.lang.reflect.Proxy;
 import java.util.Map;
 
 public final class ServiceManager {
-    public static final String ACCOUNT_SERVICE = "account";
+    public static final Class<AccountService> ACCOUNT_SERVICE = AccountService.class;
 
-    private static final Map<String, Object> SERVICE = new HashMap<>();
+    private static final Map<Class, IService> SERVICE = new ArrayMap<>();
 
-    public static <T> T getService(String name) {
-        return (T) SERVICE.get(name);
+    public static <T extends IService> T getService(Class<T> cls) {
+        IService service = SERVICE.get(cls);
+        if (service == null) {
+            service = (IService) Proxy.newProxyInstance(cls.getClassLoader(), new Class<?>[]{cls}, new NoActionProxy());
+            SERVICE.put(cls, service);
+        }
+        return (T) service;
     }
 
-    public static void registerService(String name, Object service) {
-        SERVICE.put(name, service);
+    public static <T extends IService> void registerService(Class<T> cls, IService service) {
+        SERVICE.put(cls, service);
     }
 
-    public static void removeService(String name) {
-        SERVICE.remove(name);
+    public static void unregisterService(Class cls) {
+        SERVICE.remove(cls);
     }
 }

@@ -11,6 +11,6 @@ public class LoginApp extends ApplicationDelegate {
         super.onCreate();
         ServiceManager.registerService(ServiceManager.ACCOUNT_SERVICE,
                 new AccountServiceImpl(UserInfoHolder.getInstance()));
-        AppRouter.register(AppRouter.LOGIN, new LoginRoadMapImpl());
+        AppRouter.register(AppRouter.LOGIN, new LoginRouteImpl());
     }
 }

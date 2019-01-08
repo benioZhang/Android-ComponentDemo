@@ -2,6 +2,6 @@ package com.benio.componentservice;
 
 import android.app.Activity;
 
-public interface LoginRoadMap extends RoadMap{
+public interface LoginRoute extends IRoute {
     void login(Activity activity, int requestCode);
 }

@@ -64,7 +64,7 @@ public class ShareActivity extends BaseActivity implements View.OnClickListener 
             }
         });
         AccountService accountService = ServiceManager.getService(ServiceManager.ACCOUNT_SERVICE);
-        if (accountService != null && accountService.isLogin()) {
+        if (accountService.isLogin()) {
             mUserView.setText(accountService.getUserName());
         } else {
             mUserView.setText(R.string.share_logout);
@@ -84,7 +84,7 @@ public class ShareActivity extends BaseActivity implements View.OnClickListener 
 
     private void share() {
         AccountService accountService = ServiceManager.getService(ServiceManager.ACCOUNT_SERVICE);
-        if (accountService == null || !accountService.isLogin()) {
+        if (!accountService.isLogin()) {
             Toast.makeText(this, R.string.share_failed_while_logout, Toast.LENGTH_SHORT).show();
             return;
         }
