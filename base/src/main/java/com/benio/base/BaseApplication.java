@@ -3,11 +3,18 @@ package com.benio.base;
 import android.app.Application;
 import android.content.res.Configuration;
 
+import java.util.ServiceLoader;
+
 public class BaseApplication extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
+        // SPI，Service Provider Interface
+        ServiceLoader<ApplicationDelegate> delegates = ServiceLoader.load(ApplicationDelegate.class);
+        for (ApplicationDelegate d : delegates) {
+            ApplicationDelegateDispatcher.get().add(d);
+        }
         ApplicationDelegateDispatcher.get().onCreate();
     }
 
