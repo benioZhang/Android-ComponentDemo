@@ -3,7 +3,7 @@ package com.benio.login;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.benio.componentservice.LoginRoute;
+import com.benio.login.api.LoginRoute;
 
 public class LoginRouteImpl implements LoginRoute {
     @Override

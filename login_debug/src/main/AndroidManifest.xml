@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.benio.login">
+    package="com.benio.login.debug">
 
     <application
         android:label="@string/login_app_name"
@@ -10,8 +10,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/login_title" />
     </application>
 </manifest>

@@ -1,4 +1,4 @@
-package com.benio.login;
+package com.benio.login.debug;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.benio.base.BaseActivity;
+import com.benio.login.LoginActivity;
+import com.benio.login.UserInfoHolder;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static final int REQUEST_LOGIN = 0x0101;

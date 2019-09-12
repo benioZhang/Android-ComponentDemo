@@ -28,6 +28,7 @@ dependencies {
     androidTestImplementation rootProject.ext.deps.runner
     androidTestImplementation rootProject.ext.deps.espresso
     implementation project(':base')
+    implementation project(':login_api')
     runtimeOnly project(':login')
     runtimeOnly project(':share')
 }

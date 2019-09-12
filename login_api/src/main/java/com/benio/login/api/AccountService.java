@@ -1,4 +1,6 @@
-package com.benio.componentservice;
+package com.benio.login.api;
+
+import com.benio.componentservice.IService;
 
 public interface AccountService extends IService {
     /**

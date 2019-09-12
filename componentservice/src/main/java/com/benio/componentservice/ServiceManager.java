@@ -6,8 +6,6 @@ import java.lang.reflect.Proxy;
 import java.util.Map;
 
 public final class ServiceManager {
-    public static final Class<AccountService> ACCOUNT_SERVICE = AccountService.class;
-
     private static final Map<Class, IService> SERVICE = new ArrayMap<>();
 
     public static <T extends IService> T getService(Class<T> cls) {

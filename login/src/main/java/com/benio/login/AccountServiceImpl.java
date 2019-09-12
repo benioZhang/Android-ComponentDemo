@@ -1,6 +1,6 @@
 package com.benio.login;
 
-import com.benio.componentservice.AccountService;
+import com.benio.login.api.AccountService;
 
 public class AccountServiceImpl implements AccountService {
 
