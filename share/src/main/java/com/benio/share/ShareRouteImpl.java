@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
-import com.benio.componentservice.ShareRoute;
+import com.benio.share.api.ShareRoute;
 
 public class ShareRouteImpl implements ShareRoute {
     @Override

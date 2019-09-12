@@ -6,8 +6,6 @@ import java.lang.reflect.Proxy;
 import java.util.Map;
 
 public class AppRouter {
-    public static final Class<ShareRoute> SHARE = ShareRoute.class;
-
     private static final Map<Class, IRoute> ROUTES = new ArrayMap<>();
 
     public static <T extends IRoute> T get(Class<T> cls) {

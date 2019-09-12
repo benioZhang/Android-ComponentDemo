@@ -1,6 +1,6 @@
-package com.benio.share;
+package com.benio.share.debug;
 
-import com.benio.componentservice.AccountService;
+import com.benio.login.api.AccountService;
 
 public class FakeLogoutService implements AccountService {
     @Override
@@ -16,5 +16,9 @@ public class FakeLogoutService implements AccountService {
     @Override
     public String getUserName() {
         return null;
+    }
+
+    @Override
+    public void logout() {
     }
 }

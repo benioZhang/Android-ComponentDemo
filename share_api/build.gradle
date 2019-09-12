@@ -1,14 +1,13 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.benio.component.demo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -22,14 +21,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.deps.appcompat
-    implementation rootProject.ext.deps.constraint
     testImplementation rootProject.ext.deps.junit
     androidTestImplementation rootProject.ext.deps.runner
     androidTestImplementation rootProject.ext.deps.espresso
-    implementation project(':base')
-    implementation project(':login_api')
-    implementation project(':share_api')
-    runtimeOnly project(':login')
-    runtimeOnly project(':share')
+    implementation project(':componentservice')
 }

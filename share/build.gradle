@@ -23,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    resourcePrefix 'share_'
 }
 
 dependencies {
@@ -33,4 +34,6 @@ dependencies {
     androidTestImplementation rootProject.ext.deps.runner
     androidTestImplementation rootProject.ext.deps.espresso
     implementation project(':base')
+    implementation project(':share_api')
+    implementation project(':login_api')
 }

@@ -1,12 +1,13 @@
-package com.benio.share;
+package com.benio.share.debug;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.benio.base.BaseActivity;
-import com.benio.componentservice.AccountService;
 import com.benio.componentservice.ServiceManager;
+import com.benio.login.api.AccountService;
+import com.benio.share.ShareActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -23,11 +24,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_share_login:
-                ServiceManager.registerService(ServiceManager.ACCOUNT_SERVICE, new FakeLoginService());
+                ServiceManager.registerService(AccountService.class, new FakeLoginService());
                 startActivity(new Intent(this, ShareActivity.class));
                 break;
             case R.id.btn_share_logout:
-                ServiceManager.registerService(ServiceManager.ACCOUNT_SERVICE, new FakeLogoutService());
+                ServiceManager.registerService(AccountService.class, new FakeLogoutService());
                 startActivity(new Intent(this, ShareActivity.class));
                 break;
             case R.id.btn_share_not_registered:

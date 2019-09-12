@@ -10,9 +10,9 @@ import android.widget.Toast;
 import com.benio.base.BaseActivity;
 import com.benio.componentservice.AppRouter;
 import com.benio.componentservice.ServiceManager;
-import com.benio.componentservice.ShareRoute;
 import com.benio.login.api.AccountService;
 import com.benio.login.api.LoginRoute;
+import com.benio.share.api.ShareRoute;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static final int REQUEST_LOGIN = 0x1001;

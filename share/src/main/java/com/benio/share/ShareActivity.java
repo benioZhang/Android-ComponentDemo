@@ -14,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.benio.base.BaseActivity;
-import com.benio.componentservice.AccountService;
 import com.benio.componentservice.ServiceManager;
+import com.benio.login.api.AccountService;
 
 public class ShareActivity extends BaseActivity implements View.OnClickListener {
     private TextView mUserView;
@@ -63,7 +63,7 @@ public class ShareActivity extends BaseActivity implements View.OnClickListener 
                 return false;
             }
         });
-        AccountService accountService = ServiceManager.getService(ServiceManager.ACCOUNT_SERVICE);
+        AccountService accountService = ServiceManager.getService(AccountService.class);
         if (accountService.isLogin()) {
             mUserView.setText(accountService.getUserName());
         } else {
@@ -83,7 +83,7 @@ public class ShareActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void share() {
-        AccountService accountService = ServiceManager.getService(ServiceManager.ACCOUNT_SERVICE);
+        AccountService accountService = ServiceManager.getService(AccountService.class);
         if (!accountService.isLogin()) {
             Toast.makeText(this, R.string.share_failed_while_logout, Toast.LENGTH_SHORT).show();
             return;

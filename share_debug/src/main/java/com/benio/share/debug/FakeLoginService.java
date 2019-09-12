@@ -1,8 +1,8 @@
-package com.benio.share;
+package com.benio.share.debug;
 
-import com.benio.componentservice.AccountService;
+import com.benio.login.api.AccountService;
 
-public class FakeLoginService implements AccountService{
+public class FakeLoginService implements AccountService {
     @Override
     public boolean isLogin() {
         return true;
@@ -16,5 +16,10 @@ public class FakeLoginService implements AccountService{
     @Override
     public String getUserName() {
         return "benio";
+    }
+
+    @Override
+    public void logout() {
+
     }
 }
